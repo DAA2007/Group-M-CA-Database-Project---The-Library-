@@ -3,7 +3,7 @@
 # What tables will be needed (subject to change)
 # Books (ID, Title, Genre, Author, Publisher, DateOfPublishing, IsBorrowed?)
 # BorrowedBooks (ID, Title, DateOfBorrow, ReturnTime, IsOverdue?)
-# AccountHolders (UserID, Fname, SignUpDate, )
+# AccountHolders (UserID, Fname, Lname, SignUpDate, )
 
 # 1 - Reset Database + re-initialise it
 DROP DATABASE IF EXISTS Library;
@@ -34,6 +34,20 @@ CREATE TABLE BorrowedBooks(
 CREATE TABLE LibraryAccounts(
 	UserID int(5),
 	Fname VARCHAR(15),
+    Lname VARCHAR(15),
 	DateFormed int(6),
 	borrowedBookID int(7)
 );
+
+#Denzel: I am thinking that LibraryAccounts should be part of AccountHolders like sub-tables but I don't know, you guys decide. - 30/03/2026
+#Denzel: Oh ya, should we add a Table called ReturnedBooks since we have BorrowedBooks? - 30/03/2026
+CREATE TABLE AccountHolders(
+	UserID int(5),
+	Fname VARCHAR(15),
+    Lname VARCHAR(15),
+	SignUpDate int(6)
+);
+
+#INSERT INTO Books VALUES (
+#"1234567","DummyTitle","Comedy","Dummy","Dummy Productions","2000-01-01",Yes
+#);

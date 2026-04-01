@@ -59,3 +59,4 @@ CREATE TABLE AccountHolders(
 #Denzel: Oh ya, should we add a Table called ReturnedBooks since we have BorrowedBooks? - 30/03/2026
 #Ben: I figured we were gonna only need a borrowed books table. As returned books would be taken off of the borrowed table 01/04
 #Ben: We need atleast 3 queries each using group by, aggregates and joins each. For the report we just show what tools we used and what errors we encountered. 01/04
+#Denzel: Oooh, I see. I'll start working on my Queries by tomorrow. - 01/04

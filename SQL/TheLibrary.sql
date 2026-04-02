@@ -522,3 +522,5 @@ values
 #Denzel: Oh ya, should we add a Table called ReturnedBooks since we have BorrowedBooks? - 30/03/2026
 #Ben: I figured we were gonna only need a borrowed books table. As returned books would be taken off of the borrowed table 01/04
 #Ben: We need atleast 3 queries each using group by, aggregates and joins each. For the report we just show what tools we used and what errors we encountered. 01/04
+#Denzel: Ah alright, well done on the making the data tables by the way, they look great! - 02/04/2026
+#Denzel: I'll look for a workaround behind the foreign keys and also work on my queries considering we have a week off so we can make the best of it lol. - 02/04/2026

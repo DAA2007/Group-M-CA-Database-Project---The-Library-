@@ -20,8 +20,10 @@ CREATE TABLE Books(
     Author VARCHAR(100),
     Publisher VARCHAR(35),
     DateOfPublishing date,
-    IsBorrowed boolean
-    #foreign key (BookID) references Borrows(BookID)
+    IsBorrowed boolean,
+    
+    foreign key (BookID) 
+    references Borrows(BookID)
 );
 
 CREATE TABLE Borrows(
@@ -30,17 +32,21 @@ CREATE TABLE Borrows(
     DateOfBorrow date,
     BorrowerID int(5),
     ReturnTime date,
-    IsOverdue boolean
-    #foreign key (BookID) references Books(BookID),
-    #foreign key (Title) references Books(Title)
+    IsOverdue boolean,
+    
+    foreign key (BookID, Title)
+    #foreign key (Book)
+    #foreign key (Title) Denzel: doing these individually will trigger an error, idk why.. ¯\_(ツ)_/¯  - 02/04
+    references Books(BookID, Title) #Same issue occurs here too.. 
 );
 
 CREATE TABLE AccountHolders(
 	UserID int(5) primary key,
 	Fname VARCHAR(15),
     Lname VARCHAR(15),
-	SignUpDate date
-    #foreign key (UserID) references Borrows(BorrowerID)
+	SignUpDate date,
+    foreign key (UserID) 
+    references Borrows(BorrowerID)
 );
 
 # 3 - adding the values to the books
@@ -514,6 +520,9 @@ values
 
 # 4 - Queries (12 ones required)
 # Denzel's Queries
+#notes: GROUP BY, Aggregates: COUNT, SUM, AVG, MIN/MAX, Joins each: Inner Joins [JOIN, ON], Outer Joins, Left Joins, Right Joins, SELECT, FROM
+#The code: SELECT
+
 # Ben's Queries
 # Faheem's Queries
 
@@ -524,3 +533,5 @@ values
 #Ben: We need atleast 3 queries each using group by, aggregates and joins each. For the report we just show what tools we used and what errors we encountered. 01/04
 #Denzel: Ah alright, well done on the making the data tables by the way, they look great! - 02/04/2026
 #Denzel: I'll look for a workaround behind the foreign keys and also work on my queries considering we have a week off so we can make the best of it lol. - 02/04/2026
+#Denzel: I FIXED IT THE FOREIGN KEYS ISSUE, WOOOOO! (WELL I THINK.) Okay so for the first and third one, you needed to add a comma at the end of "IsBorrowed boolean"! - 02/04/2026
+#Denzel: While for the second, all I needed to do was to add them together with commas inside of brackets. - 02/04/2026

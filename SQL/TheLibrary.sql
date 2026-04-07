@@ -23,7 +23,8 @@ CREATE TABLE Books(
     Author VARCHAR(100),
     Publisher VARCHAR(35),
     DateOfPublishing date,
-    IsBorrowed boolean
+    IsBorrowed boolean,
+    UNIQUE INDEX(BookID, Title)
     
 );
 

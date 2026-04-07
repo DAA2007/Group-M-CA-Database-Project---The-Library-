@@ -6,6 +6,9 @@
 # AccountHolders (UserID, Fname, Lname, SignUpDate, )
 
 # 1 - Reset Database + re-initialise it
+
+#To be fixed eventually: Error Code 1822:  Failed to add the Foreign key constraint.
+
 DROP DATABASE IF EXISTS Library;
 
 CREATE DATABASE Library;
@@ -20,10 +23,8 @@ CREATE TABLE Books(
     Author VARCHAR(100),
     Publisher VARCHAR(35),
     DateOfPublishing date,
-    IsBorrowed boolean,
+    IsBorrowed boolean
     
-    foreign key (BookID) 
-    references Borrows(BookID)
 );
 
 CREATE TABLE Borrows(
@@ -38,6 +39,12 @@ CREATE TABLE Borrows(
     #foreign key (Book)
     #foreign key (Title) Denzel: doing these individually will trigger an error, idk why.. ¯\_(ツ)_/¯  - 02/04
     references Books(BookID, Title) #Same issue occurs here too.. 
+);
+
+#Added ALTER TABLE to Books for Borrows to be referenced [since Borrows comes after Books and the code needs to recognise Borrows' existence.]
+ALTER TABLE Books ADD(
+	foreign key (BookID) 
+    references Borrows(BookID)
 );
 
 CREATE TABLE AccountHolders(
@@ -535,3 +542,4 @@ values
 #Denzel: I'll look for a workaround behind the foreign keys and also work on my queries considering we have a week off so we can make the best of it lol. - 02/04/2026
 #Denzel: I FIXED IT THE FOREIGN KEYS ISSUE, WOOOOO! (WELL I THINK.) Okay so for the first and third one, you needed to add a comma at the end of "IsBorrowed boolean"! - 02/04/2026
 #Denzel: While for the second, all I needed to do was to add them together with commas inside of brackets. - 02/04/2026
+#Denzel: My brain is blowing up at the moment trying to figure out why Borrows is giving an error but I am still looking at a wayaround. - 07/04/2026

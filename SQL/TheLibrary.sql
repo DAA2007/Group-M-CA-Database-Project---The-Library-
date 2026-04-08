@@ -39,7 +39,10 @@ CREATE TABLE Borrows(
     foreign key (BookID, Title)
     #foreign key (Book)
     #foreign key (Title) Denzel: doing these individually will trigger an error, idk why.. ¯\_(ツ)_/¯  - 02/04
-    references Books(BookID, Title) #Same issue occurs here too.. 
+    references Books(BookID, Title), #Same issue occurs here too.. 
+    
+    UNIQUE INDEX(BorrowerID)
+
 );
 
 #Added ALTER TABLE to Books for Borrows to be referenced [since Borrows comes after Books and the code needs to recognise Borrows' existence.]

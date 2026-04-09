@@ -64,6 +64,7 @@ CREATE TABLE AccountHolders(
 insert into Books(Title, Genre, Author, Publisher, DateOfPublishing, IsBorrowed)
 #I just removed BookID and the numbers since the code already recognises BookID as a value per column.
 #If you guys want I can change this back to having BookID and nymbers but it's basically the same thing lol.
+# All Good, its actually such a big brain move.
 values
 	('Nineteen Eighty-Four','Non-Fiction','GeorgeOrwell','HachetteBookGroup','1949-06-08',false),
 	('Pride and Prejudice','HistoricalFiction','JaneAusten','Simon&Schuster','1813-01-28',true),
@@ -527,14 +528,22 @@ values
 	('Winfred', 'Saket', '2020-08-05'),
 	('Danila', 'Fosdick', '2024-03-28');
 
-
-
+	show tables;
 # 4 - Queries (12 ones required)
 # Denzel's Queries
 #notes: GROUP BY, Aggregates: COUNT, SUM, AVG, MIN/MAX, Joins each: Inner Joins [JOIN, ON], Outer Joins, Left Joins, Right Joins, SELECT, FROM
 #The code: SELECT
 
 # Ben's Queries
+# Query One - Finding the Number of Books borrowed
+select Count(*) as TotalBooks, sum(IsBorrowed) as CurrentBorrows from Books;
+
+# Query Two - How many accounts were opened a year
+select YEAR(SignUpDate) as YearJoined, COUNT(*) as NumJoined
+from AccountHolders
+Group By YearJoined;
+
+# Query Three - 
 # Faheem's Queries
 
 # Messages
@@ -551,3 +560,4 @@ values
 #Week 2
 #Denzel: My brain is blowing up at the moment trying to figure out why Borrows is giving an error but I am still looking at a wayaround. - 07/04/2026
 #Denzel: Now the code fully runs now. However, some sacrifices needed to be made.. (They are in the TODOs errors (＾＾)b ) 
+#Ben: Queries are harder than anticipated, 

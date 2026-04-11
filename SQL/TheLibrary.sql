@@ -532,7 +532,21 @@ values
 # 4 - Queries (12 ones required)
 # Denzel's Queries
 #notes: GROUP BY, Aggregates: COUNT, SUM, AVG, MIN/MAX, Joins each: Inner Joins [JOIN, ON], Outer Joins, Left Joins, Right Joins, SELECT, FROM
-#The code: SELECT
+#Query 1 - Here I will select how many total AccountHolders are there and how much of them haven't borrowed any books
+select Count(*) as TotalAccountHolders, sum(IsOverdue) as TotalOfBooksNotBorrowed
+from Borrows;
+#Query 2 - Let's see what year each book came out
+select YEAR(DateOfPublishing) as YearPublished, Count(*) as BookNumPublished
+from Books
+Group by YearPublished order by YearPublished desc;
+#Query 3 - The genre that has the most amount of books borrowed
+select Genre as Genre, sum(IsBorrowed) as TotalAmountofBooksBorrowed
+from Books
+Group by Genre order by TotalAmountofBooksBorrowed desc;
+#Query 4 - How many books each authors have
+select Author as Author, count(*) as TotalAmountofBooks
+from Books
+Group by Author order by TotalAmountofBooks desc;
 
 # Ben's Queries
 # Query One - Finding the Number of Books borrowed
@@ -559,5 +573,10 @@ Group By YearJoined;
 
 #Week 2
 #Denzel: My brain is blowing up at the moment trying to figure out why Borrows is giving an error but I am still looking at a wayaround. - 07/04/2026
-#Denzel: Now the code fully runs now. However, some sacrifices needed to be made.. (They are in the TODOs errors (＾＾)b ) 
-#Ben: Queries are harder than anticipated, 
+#Denzel: Now the code fully runs now. However, some sacrifices needed to be made.. (They are in the TODOs errors (＾＾)b ) - 08/04/2026
+#Ben: Queries are harder than anticipated - 09/04/2026
+#Denzel: Dang, I gonna work on mine now. Good job anyways. - 10/04/2026
+#Denzel: Not gonna lie, queries are kind of confusing I agree. - 11/04/2026
+#Denzel: Finally done my early queries (yea, I need to work these to look at more polished.)
+
+#Week 3

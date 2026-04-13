@@ -582,3 +582,6 @@ order by Borrows desc;
 #Ben: Auto Increment is causing pure havoc, Its preventing the borrowed table from existing, I had to remove it and restore the numbers.13/04/26
 #Ben: Even after undoing it, it still thinks its there 13/04/26
 #Ben: I have zero clue as to what queries to make, all of the ones I try end up being to complex or requiring AI to create 13/04/26
+#Denzel: SWEEETTT, great job
+#Demzel: It's all good, I had no idea auto increment would create issues. Amazing that you removed it ^^
+#Denzel: I will be working on the report now (^^)b

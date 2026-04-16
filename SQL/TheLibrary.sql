@@ -558,6 +558,28 @@ join Books on Borrowed.Title = Books.Title
 group by Books.Publisher
 order by Borrows desc;
 # Faheem's Queries
+--Query 1: Most Borrowed Books--
+# SELECT b.Title, COUNT(*) AS TimesBorrowed
+	FROM Borrowed br
+	JOIN Books b ON br.BookID = b.id
+	GROUP BY b.Title
+	ORDER BY TimesBorrowed DESC
+	LIMIT 5;
+-- Query 2: Most popular publishers--
+SELECT b.Publisher, COUNT(*) AS TotalBorrows
+	FROM Borrowed br
+	JOIN Books b ON br.BookID = B.ID
+	GROUP BY b.Publisher
+	ORDER BY TotalBorrows DESC;
+--Query 3: Currently overdue books--
+SELECT Title, UserID, DateOfBorrow, ReturnTime
+FROM Borrowed
+WHERE IsOverdue = true;
+--Query 4: Users who borrowed the most books--
+SELECT UserID, COUNT(*) AS TotalBooksBorrowed
+FROM Borrowed 
+GROUP BY UserID
+ORDER BY TotalBooksBorrowed DESC;
 
 # Messages
 #Week 1

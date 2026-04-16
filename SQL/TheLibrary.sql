@@ -559,7 +559,7 @@ group by Books.Publisher
 order by Borrows desc;
 # Faheem's Queries
 -- Query 1: Most Borrowed Books--
-# SELECT b.Title, COUNT(*) AS TimesBorrowed
+	SELECT b.Title, COUNT(*) AS TimesBorrowed
 	FROM Borrowed br
 	JOIN Books b ON br.BookID = b.id
 	GROUP BY b.Title
